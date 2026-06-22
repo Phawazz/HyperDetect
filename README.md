@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/hypersense_logo_light_800x240.png" alt="HyperSense Logo" width="320"/>
+<img src="assets/hypersense_banner_1280x640.png" alt="HyperSense" width="720"/>
 
 # HyperSense
 
