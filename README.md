@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/hypersense_logo_light_800x240.png" alt="HyperSense Logo" width="380"/>
+<img src="assets/hypersense_logo_light_800x240.png" alt="HyperSense Logo" width="320"/>
 
 # HyperSense
 
@@ -8,10 +8,10 @@
 
 [![Live App](https://img.shields.io/badge/🚀_Live_App-hypersense.streamlit.app-C1121F?style=for-the-badge)](https://hypersense.streamlit.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-0D1B2A?style=for-the-badge)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.10+-415A77?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Python](https://img.shields.io/badge/Python-3.14.2-415A77?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![XGBoost](https://img.shields.io/badge/Model-XGBoost-415A77?style=for-the-badge)](https://xgboost.readthedocs.io)
 
-*Five questions. No blood pressure cuff. Know your risk.*
+*Answer Five questions. Know your risk.*
 
 **[→ Try HyperSense Live](https://hypersense.streamlit.app)**
 
@@ -223,7 +223,7 @@ Medical Student · College of Medicine, University of Ibadan
 ML Engineer · Cardiovascular Health Journal Club B - CRIH 
 
 [![GitHub](https://img.shields.io/badge/GitHub-Phawazz-0D1B2A?style=flat&logo=github)](https://github.com/Phawazz)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Fawaz_Bello-0077B5?style=flat&logo=linkedin)](https://linkedin.com/in/fawaz-bello)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Fawaz_Bello-0077B5?style=flat&logo=linkedin)](https://linkedin.com/in/fawazbello)
 
 ---
 
