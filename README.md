@@ -9,7 +9,7 @@
 [![Python](https://img.shields.io/badge/Python-3.14.2-415A77?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![XGBoost](https://img.shields.io/badge/Model-XGBoost-415A77?style=for-the-badge)](https://xgboost.readthedocs.io)
 
-*Answer Five questions. Know your risk.*
+*Answer a few questions. Know when to get checked.*
 
 **[→ Try HyperSense Live](https://hypersense.streamlit.app)**
 
@@ -19,9 +19,9 @@
 
 ## What Is HyperSense?
 
-HyperSense is an explainable machine learning system that estimates an individual's likelihood of hypertension using five non-invasive inputs — no clinical equipment, no blood test, no blood pressure cuff required.
+HyperSense is an explainable machine learning system that estimates an individual's likelihood of hypertension using six non-invasive inputs — no clinical equipment, no blood test, no blood pressure cuff required.
 
-Given **age, sex, place of residence, education level, and tobacco use**, HyperSense returns:
+Given **age, sex, place of residence, education level, tobacco use, and BMI**, HyperSense returns:
 
 - A **hypertension risk tier** (High / Low)
 - A **probability estimate** of elevated blood pressure
@@ -112,8 +112,12 @@ Age dominance is clinically expected and consistent with the epidemiological lit
 
 ## Methodology Notes
 
-**Why not include BMI?**
-BMI was excluded from the primary model due to structural non-overlap between anthropometric and blood pressure measurement subsamples in the Benin DHS 2017–18 survey. Including BMI reduced the analytical sample from 20,446 to 7,844 observations (62% loss), introducing selection bias. BMI inclusion is planned as a secondary sensitivity analysis.
+**BMI inclusion**
+
+During early model development, BMI was excluded because anthropometric measurements and blood pressure measurements did not fully overlap in the Benin DHS 2017–18 survey. Restricting analysis to participants with complete BMI data reduced the available sample from 20,446 to 7,844 observations (62% reduction), raising concerns about selection bias and loss of statistical power.
+
+As a result, the initial HyperSense deployment (v1.0) prioritised a larger population-representative sample without BMI. Following additional model development and evaluation, BMI has been incorporated into HyperSense v1.1 through a secondary modelling pipeline, enabling more personalised risk assessment while acknowledging the trade-off between feature richness and sample size.
+
 
 **Why Ghana and Benin, not Nigeria?**
 A systematic search of all publicly available Nigerian health datasets confirmed that no nationally representative Nigerian dataset with fieldworker-measured blood pressure values currently exists. The Nigeria DHS (all rounds including 2023–24) collects only self-reported hypertension awareness. The 2023 Nigeria STEPS Survey with measured biomarkers is under validation as of mid-2026. Active data access requests are pending with authors who have contributed to blood pressure data on a large scale in recent years.
@@ -142,11 +146,41 @@ DHS surveys use stratified cluster sampling. Survey weights were applied during 
 ## Roadmap
 
 - [ ] **Phase 2** — Fine-tuning on Nigerian measured BP data *(data access requests active)*
-- [ ] BMI sensitivity analysis — secondary model on n=7,844 complete-case sample
+- [x] BMI sensitivity analysis — secondary model on n=7,844 complete-case sample
 - [ ] Formal calibration assessment (isotonic regression on dedicated holdout)
 - [ ] TRIPOD-compliant methodology write-up for peer review
 - [ ] OSF pre-registration for pilot evaluation study
 - [ ] Multilingual support — Yoruba, Hausa, Igbo
+
+---
+
+## Version 1.1 Update
+
+HyperSense v1.1 introduces Body Mass Index (BMI) as a predictive feature derived from user-entered height and weight.
+
+### What's New
+
+* BMI added as a model input
+* Height and weight collection added to the screening interface
+* Updated XGBoost model retrained with BMI-enhanced feature set
+* Refined screening result messaging
+* Improved clinical disclaimers and user guidance
+
+### Why BMI?
+
+BMI is a well-established risk factor associated with hypertension and contributes meaningful predictive information beyond demographic variables alone. Incorporating BMI allows HyperSense to provide a more individualized screening assessment while maintaining a fully non-invasive workflow.
+
+### Methodological Trade-off
+
+The original HyperSense v1.0 model was trained on approximately 20,446 adults with valid blood pressure measurements across Ghana and Benin. However, BMI data were not available for all participants due to differences in survey design and data collection procedures.
+
+Including BMI required restricting training to a substantially smaller complete-case sample. This reduced population coverage but enabled the model to leverage an important physiological risk factor that was previously unavailable.
+
+HyperSense v1.1 therefore prioritizes richer individual-level information over maximum sample size. Both approaches have advantages: larger datasets generally improve population representativeness, while BMI-enhanced models may provide more personalized risk assessment.
+
+### Important Note
+
+The HyperSense score remains a screening result, not a diagnosis. Users with elevated screening scores should obtain a blood pressure measurement from a qualified healthcare provider.
 
 ---
 
